@@ -13,7 +13,13 @@ struct FiveNearPlacesView: View {
     
     var body: some View {
         VStack{
-            
+            List {
+                ForEach(fiveNearPlacesViewModel.fivePlaces) { place in
+                    PlaceCellView(place: place)
+                        .cornerRadius(5)
+                        .shadow(radius: 5)
+                }
+            }
         }.onAppear {
             locationManager.checkIfUserLocationIsEnabled()
             fiveNearPlacesViewModel.getPlaces(for: locationManager.userLocation)

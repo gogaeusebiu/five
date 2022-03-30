@@ -1,0 +1,165 @@
+{
+    "results": [
+        {
+            "fsq_id": "4efcacce0e014519c6e427d0",
+            "categories": [
+                {
+                    "id": 11040,
+                    "name": "Factory",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/building/factory_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "distance": 75,
+            "geocodes": {
+                "main": {
+                    "latitude": 40.731272,
+                    "longitude": -73.93492
+                },
+                "roof": {
+                    "latitude": 40.731272,
+                    "longitude": -73.93492
+                }
+            },
+            "location": {
+                "address": "38-20 Review Ave",
+                "country": "US",
+                "cross_street": "",
+                "dma": "New York",
+                "formatted_address": "38-20 Review Ave, Queens, NY 11101",
+                "locality": "Queens",
+                "neighborhood": [
+                    "Blissville"
+                ],
+                "postcode": "11101",
+                "region": "NY"
+            },
+            "name": "Le Noble Lumber",
+            "related_places": {},
+            "timezone": "America/New_York"
+        },
+        {
+            "fsq_id": "4b93e932f964a520375934e3",
+            "categories": [
+                {
+                    "id": 12003,
+                    "name": "Cemetery",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/cemetery_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "distance": 638,
+            "geocodes": {
+                "main": {
+                    "latitude": 40.736024,
+                    "longitude": -73.932699
+                },
+                "roof": {
+                    "latitude": 40.736024,
+                    "longitude": -73.932699
+                }
+            },
+            "location": {
+                "address": "3352 Greenpoint Ave",
+                "country": "US",
+                "cross_street": "btwn Greenpoint Ave & Gale Av",
+                "dma": "New York",
+                "formatted_address": "3352 Greenpoint Ave (btwn Greenpoint Ave & Gale Av), Long Island City, NY 11101",
+                "locality": "Long Island City",
+                "neighborhood": [
+                    "Dutch Kills"
+                ],
+                "postcode": "11101",
+                "region": "NY"
+            },
+            "name": "Third Calvary Cemetery",
+            "related_places": {},
+            "timezone": "America/New_York"
+        },
+        {
+            "fsq_id": "53ebdf05498edee2a77b1910",
+            "categories": [
+                {
+                    "id": 11000,
+                    "name": "Business and Professional Services",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/building/default_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "distance": 61,
+            "geocodes": {
+                "main": {
+                    "latitude": 40.730987,
+                    "longitude": -73.935476
+                },
+                "roof": {
+                    "latitude": 40.730987,
+                    "longitude": -73.935476
+                }
+            },
+            "location": {
+                "address": "3840 Review Ave",
+                "census_block": "360810199021016",
+                "country": "US",
+                "cross_street": "",
+                "dma": "New York",
+                "formatted_address": "3840 Review Ave, Long Island City, NY 11101",
+                "locality": "Long Island City",
+                "neighborhood": [
+                    "Blissville"
+                ],
+                "postcode": "11101",
+                "region": "NY"
+            },
+            "name": "A & L Recycling",
+            "related_places": {},
+            "timezone": "America/New_York"
+        },
+        {
+            "fsq_id": "4f22a931e4b063d4fe9d1169",
+            "categories": [
+                {
+                    "id": 13068,
+                    "name": "American Restaurant",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "distance": 295,
+            "geocodes": {
+                "main": {
+                    "latitude": 40.732737,
+                    "longitude": -73.937357
+                }
+            },
+            "location": {
+                "address": "3146 Greenpoint Ave",
+                "country": "US",
+                "cross_street": "",
+                "dma": "New York",
+                "formatted_address": "3146 Greenpoint Ave, Long Island City, NY 11101",
+                "locality": "Long Island City",
+                "neighborhood": [
+                    "Blissville"
+                ],
+                "postcode": "11101",
+                "region": "NY"
+            },
+            "name": "Sparta deli",
+            "related_places": {},
+            "timezone": "America/New_York"
+        }
+    ]
+}

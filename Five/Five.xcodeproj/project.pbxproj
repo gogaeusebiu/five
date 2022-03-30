@@ -18,6 +18,12 @@
 		4350CBE527EE68DD006E691E /* FiveNearPlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4350CBE427EE68DD006E691E /* FiveNearPlacesRepository.swift */; };
 		43B7C7BA27F2375700B34572 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B7C7B927F2375700B34572 /* NetworkMonitor.swift */; };
 		43B7C7BC27F2428A00B34572 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B7C7BB27F2428A00B34572 /* LocationManager.swift */; };
+		43B7C7BE27F334F900B34572 /* PlaceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B7C7BD27F334F900B34572 /* PlaceCellView.swift */; };
+		43D1DE9727F33C8E00E9D92C /* UrlPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D1DE9627F33C8E00E9D92C /* UrlPaths.swift */; };
+		43D1DE9927F347EB00E9D92C /* PlacesDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D1DE9827F347EB00E9D92C /* PlacesDto.swift */; };
+		43D1DE9B27F3971300E9D92C /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D1DE9A27F3971300E9D92C /* Mapper.swift */; };
+		43D1DE9D27F4550E00E9D92C /* DecodeJsonBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D1DE9C27F4550E00E9D92C /* DecodeJsonBundleExtension.swift */; };
+		43D1DE9F27F4589D00E9D92C /* PlacesMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 43D1DE9E27F4589D00E9D92C /* PlacesMock.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +39,12 @@
 		4350CBE427EE68DD006E691E /* FiveNearPlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveNearPlacesRepository.swift; sourceTree = "<group>"; };
 		43B7C7B927F2375700B34572 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		43B7C7BB27F2428A00B34572 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		43B7C7BD27F334F900B34572 /* PlaceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCellView.swift; sourceTree = "<group>"; };
+		43D1DE9627F33C8E00E9D92C /* UrlPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlPaths.swift; sourceTree = "<group>"; };
+		43D1DE9827F347EB00E9D92C /* PlacesDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesDto.swift; sourceTree = "<group>"; };
+		43D1DE9A27F3971300E9D92C /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		43D1DE9C27F4550E00E9D92C /* DecodeJsonBundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeJsonBundleExtension.swift; sourceTree = "<group>"; };
+		43D1DE9E27F4589D00E9D92C /* PlacesMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlacesMock.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				4350CBD527EE65D0006E691E /* PlacesContainer.xcdatamodeld */,
+				43D1DE9827F347EB00E9D92C /* PlacesDto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -97,6 +110,7 @@
 		4350CBD827EE678A006E691E /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				43B7C7BD27F334F900B34572 /* PlaceCellView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -132,6 +146,10 @@
 			children = (
 				43B7C7B927F2375700B34572 /* NetworkMonitor.swift */,
 				43B7C7BB27F2428A00B34572 /* LocationManager.swift */,
+				43D1DE9627F33C8E00E9D92C /* UrlPaths.swift */,
+				43D1DE9A27F3971300E9D92C /* Mapper.swift */,
+				43D1DE9C27F4550E00E9D92C /* DecodeJsonBundleExtension.swift */,
+				43D1DE9E27F4589D00E9D92C /* PlacesMock.json */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -195,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4350CBCE27EE652D006E691E /* Preview Assets.xcassets in Resources */,
+				43D1DE9F27F4589D00E9D92C /* PlacesMock.json in Resources */,
 				4350CBCB27EE652D006E691E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,11 +227,16 @@
 			files = (
 				4350CBE527EE68DD006E691E /* FiveNearPlacesRepository.swift in Sources */,
 				4350CBC927EE652B006E691E /* TabView.swift in Sources */,
+				43D1DE9D27F4550E00E9D92C /* DecodeJsonBundleExtension.swift in Sources */,
+				43D1DE9927F347EB00E9D92C /* PlacesDto.swift in Sources */,
 				4350CBC727EE652B006E691E /* FiveApp.swift in Sources */,
 				4350CBE127EE6893006E691E /* AboutUs.swift in Sources */,
+				43B7C7BE27F334F900B34572 /* PlaceCellView.swift in Sources */,
 				4350CBDE27EE682D006E691E /* FiveNearPlacesView.swift in Sources */,
 				4350CBE327EE68C0006E691E /* FiveNearPlacesViewModel.swift in Sources */,
+				43D1DE9727F33C8E00E9D92C /* UrlPaths.swift in Sources */,
 				4350CBD727EE65D0006E691E /* PlacesContainer.xcdatamodeld in Sources */,
+				43D1DE9B27F3971300E9D92C /* Mapper.swift in Sources */,
 				43B7C7BA27F2375700B34572 /* NetworkMonitor.swift in Sources */,
 				43B7C7BC27F2428A00B34572 /* LocationManager.swift in Sources */,
 			);

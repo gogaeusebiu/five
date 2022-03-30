@@ -13,7 +13,8 @@ import SwiftUI
 
 final class FiveNearPlacesRepository: ObservableObject {
     @Published var fivePlaces: [PlaceEntity] = []
-        
+    
+    private var cancellables: Set<AnyCancellable> = []
     private let container: NSPersistentContainer
     private let containerName = "PlacesContainer"
     private let entityName = "PlaceEntity"
@@ -29,16 +30,56 @@ final class FiveNearPlacesRepository: ObservableObject {
     
     func getPlaces(for location: CLLocation) {
         if NetworkMonitor.shared.status == .satisfied {
-            getPlacesFromFourSquare()
+            getPlacesFromFourSquare(for: location).sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .failure(let error):
+                        print(error)
+                    case .finished:
+                        print("Finished successfuly")
+                    }
+                },
+                receiveValue: { places in
+                    if places.results.isEmpty {
+                        let items = Bundle.main.decode(type: PlacesDto.self, from: "PlacesMock.json")
+                        self.addPlacesToDataBase(items)
+                    } else {
+                        self.addPlacesToDataBase(places)
+                    }
+                }
+            ).store(in: &cancellables)
         } else {
             getPlacesFromCoreDate()
         }
     }
     
     // MARK: Private Methods
-
-    private func getPlacesFromFourSquare() {
+    
+    private func getPlacesFromFourSquare(for location: CLLocation) -> AnyPublisher<PlacesDto, Never> {
+        var urlComponents = URLComponents(string: UrlPaths.nearPlacesUrl)
         
+        var queryItems = [URLQueryItem]()
+        for (key, value) in UrlPaths.requestParameters(location.coordinate.latitude, location.coordinate.longitude) {
+            queryItems.append(URLQueryItem(name: key, value: value))
+        }
+        
+        urlComponents?.queryItems = queryItems
+        
+        var request = URLRequest(url: (urlComponents?.url)!)
+        request.httpMethod = "GET"
+        
+        for (key, value) in UrlPaths.headers {
+            request.setValue(value, forHTTPHeaderField: key)
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .map({ data, response in
+                return data
+            })
+            .decode(type: PlacesDto.self, decoder: JSONDecoder())
+            .replaceError(with: PlacesDto(results: []))
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
     
     private func getPlacesFromCoreDate() {
@@ -51,10 +92,18 @@ final class FiveNearPlacesRepository: ObservableObject {
         }
     }
     
-    private func addPlaces() {
-        for place in fivePlaces {
-            let placeEntity = NSEntityDescription.insertNewObject(forEntityName: entityName, into: container.viewContext)
-            placeEntity.setValue(place.name, forKey: "name")
+    private func addPlacesToDataBase(_ placesDto: PlacesDto) {
+        for place in placesDto.results {
+            let placeEntity = PlaceEntity(context: container.viewContext)
+            
+            placeEntity.name = place.name
+            placeEntity.distance = place.distance
+            placeEntity.region = place.location.region
+            placeEntity.locality = place.location.locality
+            placeEntity.streetAddress = place.location.address
+            placeEntity.country = place.location.country
+            
+            self.fivePlaces.append(placeEntity)
         }
         
         applyChanges()
