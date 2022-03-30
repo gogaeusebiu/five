@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct FiveApp: App {
+    @StateObject private var locationManager = LocationManager()
+    
+    init() {
+        NetworkMonitor.shared.startMonitoring()
+    }
+    
     var body: some Scene {
         WindowGroup {
             TabView()
+                .onAppear {
+                    locationManager.checkIfUserLocationIsEnabled()
+                }
+                .ignoresSafeArea(.all, edges: .bottom)
         }
     }
 }

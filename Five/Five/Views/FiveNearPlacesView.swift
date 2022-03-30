@@ -10,6 +10,7 @@ import SwiftUI
 struct FiveNearPlacesView: View {
     @ObservedObject var fiveNearPlacesViewModel: FiveNearPlacesViewModel
     @StateObject private var locationManager = LocationManager()
+    @State var alertVisible = false
     
     var body: some View {
         VStack{
@@ -19,11 +20,23 @@ struct FiveNearPlacesView: View {
                         .cornerRadius(5)
                         .shadow(radius: 5)
                 }
-            }.listStyle(GroupedListStyle())
-        }.onAppear {
-            locationManager.checkIfUserLocationIsEnabled()
+            }
+            .listStyle(GroupedListStyle())
+            .onAppear(perform: {
+                UITableView.appearance().contentInset.top = -35
+            })
+        }
+        .alert(isPresented: $alertVisible) {
+            Alert (title: Text("Location is not enabled"),
+                   message: Text("Go to Settings?"),
+                   primaryButton: .default(Text("Settings"), action: {
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            }),
+                   secondaryButton: .default(Text("Cancel")))
+        }
+        .onAppear {
             fiveNearPlacesViewModel.getPlaces(for: locationManager.userLocation)
         }
     }
-
+    
 }

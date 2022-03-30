@@ -10,7 +10,6 @@ import SwiftUI
 struct TabView: View {
     @State private var selectedScreen = 1
 
-    
     var body: some View {
         VStack {
             Picker(selection: $selectedScreen, label: Text("Picker"), content: {
@@ -19,8 +18,6 @@ struct TabView: View {
             })
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
-        }.onAppear {
-            NetworkMonitor.shared.startMonitoring()
         }
         Spacer()
         if selectedScreen == 1 {
