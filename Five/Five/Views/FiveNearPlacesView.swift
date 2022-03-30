@@ -14,11 +14,15 @@ struct FiveNearPlacesView: View {
     
     var body: some View {
         VStack{
+            if fiveNearPlacesViewModel.isLoading {
+                ProgressView()
+            }
             List {
                 ForEach(fiveNearPlacesViewModel.fivePlaces) { place in
                     PlaceCellView(place: place)
                         .cornerRadius(5)
                         .shadow(radius: 5)
+                        .frame(height: 400)
                 }
             }
             .listStyle(GroupedListStyle())

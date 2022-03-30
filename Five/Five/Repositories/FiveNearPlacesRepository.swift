@@ -12,10 +12,10 @@ import CoreLocation
 final class FiveNearPlacesRepository: ObservableObject {
     
     func getPlaces(for location: CLLocation) -> AnyPublisher<PlacesDto, Never> {
-        var urlComponents = URLComponents(string: UrlPaths.nearPlacesUrl)
+        var urlComponents = URLComponents(string: UrlPaths.baseUrl + UrlPaths.nearPlacesUrl)
         
         var queryItems = [URLQueryItem]()
-        for (key, value) in UrlPaths.requestParameters(location.coordinate.latitude, location.coordinate.longitude) {
+        for (key, value) in UrlPaths.nearPlaceRequestParameters(location.coordinate.latitude, location.coordinate.longitude) {
             queryItems.append(URLQueryItem(name: key, value: value))
         }
         
@@ -29,9 +29,7 @@ final class FiveNearPlacesRepository: ObservableObject {
         }
         
         return URLSession.shared.dataTaskPublisher(for: request)
-            .map({ data, response in
-                return data
-            })
+            .map({ $0.data })
             .decode(type: PlacesDto.self, decoder: JSONDecoder())
             .replaceError(with: PlacesDto(results: []))
             .receive(on: DispatchQueue.main)

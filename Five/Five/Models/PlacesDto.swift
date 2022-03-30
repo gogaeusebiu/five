@@ -5,8 +5,6 @@
 //  Created by Goga Eusebiu on 29.03.2022.
 //
 
-import CoreData
-
 struct PlacesDto: Codable {
     var results: [PlaceDto]
 }

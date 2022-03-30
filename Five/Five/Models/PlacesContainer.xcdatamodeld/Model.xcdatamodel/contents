@@ -3,12 +3,13 @@
     <entity name="PlaceEntity" representedClassName=".PlaceEntity" syncable="YES" codeGenerationType="class">
         <attribute name="country" optional="YES" attributeType="String"/>
         <attribute name="distance" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fsqId" optional="YES" attributeType="String"/>
         <attribute name="locality" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="region" optional="YES" attributeType="String"/>
         <attribute name="streetAddress" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="PlaceEntity" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="PlaceEntity" positionX="-63" positionY="-18" width="128" height="134"/>
     </elements>
 </model>

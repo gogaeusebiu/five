@@ -13,7 +13,8 @@ final class FiveNearPlacesViewModel: ObservableObject {
     @Published var fiveNearPlacesCoreDataRepository = FiveNearPlacesCoreDataRepository()
     @Published var fiveNearPlacesRepository = FiveNearPlacesRepository()
     @Published var fivePlaces: [PlaceEntity] = []
-    
+    @Published var isLoading: Bool = false
+
     private var cancellables: Set<AnyCancellable> = []
 
     init() {
@@ -23,6 +24,7 @@ final class FiveNearPlacesViewModel: ObservableObject {
     
     func getPlaces(for location: CLLocation) {
         if NetworkMonitor.shared.status == .satisfied {
+            self.isLoading = true
             fiveNearPlacesRepository.getPlaces(for: location).sink(
                 receiveCompletion: { completion in
                     switch completion {
@@ -39,6 +41,7 @@ final class FiveNearPlacesViewModel: ObservableObject {
                     } else {
                         self.fiveNearPlacesCoreDataRepository.addPlacesToDataBase(places)
                     }
+                    self.isLoading = false
                 }
             ).store(in: &cancellables)
         } else {

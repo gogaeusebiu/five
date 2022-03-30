@@ -39,6 +39,7 @@ final class FiveNearPlacesCoreDataRepository: ObservableObject {
         for place in placesDto.results {
             let placeEntity = PlaceEntity(context: container.viewContext)
             
+            placeEntity.fsqId = place.fsq_id
             placeEntity.name = place.name
             placeEntity.distance = place.distance
             placeEntity.region = place.location.region

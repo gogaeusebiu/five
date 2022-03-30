@@ -13,7 +13,7 @@ struct TabView: View {
     var body: some View {
         VStack {
             Picker(selection: $selectedScreen, label: Text("Picker"), content: {
-                Text("5 Near Places").tag(1)
+                Text("Near Places").tag(1)
                 Text("About us").tag(2)
             })
                 .pickerStyle(SegmentedPickerStyle())
