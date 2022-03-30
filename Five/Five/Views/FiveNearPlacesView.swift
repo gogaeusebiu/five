@@ -19,7 +19,7 @@ struct FiveNearPlacesView: View {
                         .cornerRadius(5)
                         .shadow(radius: 5)
                 }
-            }
+            }.listStyle(GroupedListStyle())
         }.onAppear {
             locationManager.checkIfUserLocationIsEnabled()
             fiveNearPlacesViewModel.getPlaces(for: locationManager.userLocation)
